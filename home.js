@@ -51,3 +51,18 @@ nextBtn.addEventListener('click', nextSlide);
 // Initialize the slider and start the slideshow
 showSlide(currentSlide);
 startSlideshow();
+
+
+const express = require('express');
+const app = express();
+
+// Serve static files from the "public" directory
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
+app.listen(3000, () => {
+    console.log('Server running on http://localhost:3000');
+});
